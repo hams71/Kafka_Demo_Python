@@ -1,69 +1,107 @@
-# Kafka_Demo_Python
+# Kafka_With_Python
 
-For installing and running Kafka we have some pre-req
+### Table of Contents
 
-- Java
+- [Overview](#overview)
+- [Kafka](#kafka)
+- [Kafka Installation](#kafka-installation)
+- [Folder Structure](#folder-structure)
+- [Program Flow](#program-flow)
+- [Program Execution](#program-execution)
+- [Level Up](#level-up)
+- [Documentation and Material](#documentation-and-material)
+- [Tools and Technologies](#tools-and-technologies)
 
-Will need to have Java 11 installed in our system, why java 11 because the cluster manager for Kafka that we will be using to manage our kafka related stuff
-need Java 11 else we won't be able to access that. I have installed Zulu Java 11 for ubuntu and then added its path in my system.
+---
 
-Your path will be different from mine
+### Overview
 
-vim ~/.bashrc
+- Learn about Kafka and how is can be used in streaming data.
+- Generated sales data in json and used Kafka with python to push this data to Power BI.
 
+---
 
-export JAVA_HOME=/home/ubuntu/Java/zulu8.60.0.21-ca-jdk8.0.322-linux_x64
-export PATH=$PATH:$JAVA_HOME/bin
+### Kafka
 
-source ~/.bashrc
-
-- Python
-
-After we have Java will Install Python
-
-sudo apt-get update
-sudo apt-get install python3 
-sudo apt-get install pip
-
-
-vim ~/.bashrc
-
-export PATH=$PATH:/home/ubuntu/.local/bin
-
-source ~/.bashrc
+- Apache Kafka is a distributed event store and stream-processing platform.
 
 
--- Zookeeper and Kafka
+### Kafka Installation
 
-Now we install zookeeper and kafka server both will be in the same file will download this from google just type kafka download.
-Remember to download the binary one and not the source one because we then have to build that on our own.
+- For installing and running Kafka we have to install some programs.
 
-Will download the zip file and unzip it and will get he folder
+#### Java
 
-In the Conf File of Kafka Server we need to provide our IP of machine on which kafka is hosted and similarly for zookeeper
+- Java 11 installed in our system, why java 11 because the cluster manager UI for kafka requires java 11. 
+- I have installed Zulu Java 11 for ubuntu and then added its path in my system.
 
-server.properties
-advertised.listeners=PLAINTEXT://your.host.name:9092
-zookeeper.connect=localhost:2181
+- After you have installed Java 11 will need to set the paths
+```bash
+  vim ~/.bashrc
+```
+- Once you have enter vim press **i** so that you can be in insert mode. Paste the below.
+```bash
+  export JAVA_HOME=/home/ubuntu/Java/zulu8.60.0.21-ca-jdk8.0.322-linux_x64
+  export PATH=$PATH:$JAVA_HOME/bin
+```
 
-kafka-server port 9092
-zookeeper 2181
+- Press **Esc** and enter **:x** to exit vim. 
+- Now to updathe bashrc file
+```bash
+  source ~/.bashrc
+```
 
-Change Directory to the kafka directory start the zookeeper after the above Changes have been made 
+#### Python
 
-Open Terminal
+```bash
+  sudo apt-get update
+```
+```bash
+  sudo apt-get install python3
+```
+```bash
+  sudo apt-get install pip
+```
+```bash
+  vim ~/.bashrc
+```
+```bash
+  export PATH=$PATH:/home/ubuntu/.local/bin
+```
+```bash
+  source ~/.bashrc
+```
 
-bin/zookeeper-server-start.sh config/zookeeper.properties
+### Zookeeper and Kafka
 
-The above command will start the Zookeeper
+- Now we install zookeeper and kafka server both will be in the same file will download this from google just type kafka download.
+- Remember to download the binary one and not the source one because we then have to build that on our own.
+- Download the zip file and unzip it and will get the folder
+
+- In the Conf File of Kafka Server we need to provide our IP of machine on which kafka is hosted and similarly for zookeeper
+- We are defining the ports 
+```bash
+  server.properties
+  advertised.listeners=PLAINTEXT://your.host.name:9092
+  zookeeper.connect=localhost:2181
+```
 
 
-JMX_PORT=8004 bin/kafka-server-start.sh config/server.properties
+- Change Directory to the kafka directory start the zookeeper after the above Changes have been made. 
+
+- Open Terminal
+- This will start Zookeeper
+```bash
+  bin/zookeeper-server-start.sh config/zookeeper.properties
+```
+
+- Start the kafka server we use JMX so that we can use Cluster Manger UI to make topics and have more details 
+```bash
+  JMX_PORT=8004 bin/kafka-server-start.sh config/server.properties
+```
 
 
 
-to start the kafka server 
-we use JMC so that we can use a GUI to make topics and all things 
 
 
 - Kafka Manager 
