@@ -17,6 +17,8 @@
 ### Overview
 
 - Learn about Kafka and how is can be used in streaming data.
+- How we can have multiple producers and consumers.
+- Using kafka manager to see how much data is being consumed.
 - Generated sales data in json and used Kafka with python to push this data to Power BI.
 
 ---
@@ -24,6 +26,9 @@
 ### Kafka
 
 - Apache Kafka is a distributed event store and stream-processing platform.
+- Publish (write) and subscribe to (read) streams of events, including continuous import/export of your data from other systems.
+- Store streams of events durably and reliably for as long as you want.
+- Process streams of events as they occur or retrospectively.
 
 
 ### Kafka Installation
@@ -75,7 +80,6 @@
 ### Zookeeper and Kafka
 
 - Now we install zookeeper and kafka server both will be in the same file will download this from google just type kafka download.
-- Remember to download the binary one and not the source one because we then have to build that on our own.
 - Download the zip file and unzip it and will get the folder
 
 - In the Conf File of Kafka Server we need to provide our IP of machine on which kafka is hosted and similarly for zookeeper
@@ -101,26 +105,45 @@
 ```
 
 
+#### Kafka Manager 
 
+- Kafka manager we can create topics and see the metrics of how data is being pushed and consumed.
 
+```bash
+  git clone https://github.com/yahoo/CMAK.git
+```
+```bash
+  ./sbt clean <dist>
+```
 
-- Kafka Manager 
+- Target folder will be created and an universal folder which will have a zip folder and we need to unzip it to get the html files.
+- Inside the **cmak.zkhosts** file we need to provide our IP.
+- This sort of folder structure **CMAK/target/universal/cmak-3.0.0.5**
 
-git clone https://github.com/yahoo/CMAK.git
-.sbt clean inside this 
-./sbt clean dist
+- Inside conf we will have application.conf
 
-A target folder will be created and an universal folder and will have a folder which is zip we need to unzip that all the files html one we will get
-
-Inside the cmak.zkhosts file we need to provide our IP
-
-CMAK/target/universal/cmak-3.0.0.5
-Inside conf will have application.conf
-
-After all of this we will now start our kafka manager
-
+- After all of this we will now start our kafka manager
+```bash
 bin/cmak -Dconfig.file=conf/application.conf -Dhttp.port=8080
-
+```
+- To access kafka manager UI
+```bash
 http://localhost:8080/
+```
+- Use browser of your choice and will open the Kafka Manager where we can make clusters, topics etc
 
-Above on browser of your choice and will open the Kafka Manager where we can make clusters, topics etc
+### Folder Structure
+
+- Producer.py
+- Consumer.py
+- Data_Generator.py
+- Kafka_Power_BI.ipynb
+
+### Program Flow
+
+
+
+
+### Documentation and Material
+
+- https://kafka.apache.org/documentation/
