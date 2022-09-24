@@ -7,10 +7,9 @@
 - [Kafka Installation](#kafka-installation)
 - [Folder Structure](#folder-structure)
 - [Program Flow](#program-flow)
-- [Program Execution](#program-execution)
 - [Level Up](#level-up)
-- [Documentation and Material](#documentation-and-material)
-- [Tools and Technologies](#tools-and-technologies)
+- [Documentation](#documentation)
+
 
 ---
 
@@ -77,32 +76,6 @@
   source ~/.bashrc
 ```
 
-### Zookeeper and Kafka
-
-- Now we install zookeeper and kafka server both will be in the same file will download this from google just type kafka download.
-- Download the zip file and unzip it and will get the folder
-
-- In the Conf File of Kafka Server we need to provide our IP of machine on which kafka is hosted and similarly for zookeeper
-- We are defining the ports 
-```bash
-  server.properties
-  advertised.listeners=PLAINTEXT://your.host.name:9092
-  zookeeper.connect=localhost:2181
-```
-
-
-- Change Directory to the kafka directory start the zookeeper after the above Changes have been made. 
-
-- Open Terminal
-- This will start Zookeeper
-```bash
-  bin/zookeeper-server-start.sh config/zookeeper.properties
-```
-
-- Start the kafka server we use JMX so that we can use Cluster Manger UI to make topics and have more details 
-```bash
-  JMX_PORT=8004 bin/kafka-server-start.sh config/server.properties
-```
 
 
 #### Kafka Manager 
@@ -132,6 +105,37 @@ http://localhost:8080/
 ```
 - Use browser of your choice and will open the Kafka Manager where we can make clusters, topics etc
 
+
+
+### Zookeeper and Kafka
+
+- Now we install zookeeper and kafka server both will be in the same file will download this from google just type kafka download.
+- Download the zip file and unzip it and will get the folder
+
+- In the Conf File of Kafka Server we need to provide our IP of machine on which kafka is hosted and similarly for zookeeper
+- We are defining the ports 
+```bash
+  server.properties
+  advertised.listeners=PLAINTEXT://your.host.name:9092
+  zookeeper.connect=localhost:2181
+```
+
+
+- Change Directory to the kafka directory start the zookeeper after the above Changes have been made. 
+
+- Open Terminal
+- This will start Zookeeper
+```bash
+  bin/zookeeper-server-start.sh config/zookeeper.properties
+```
+
+- Start the kafka server we use JMX so that we can use Cluster Manger UI to make topics and have more details 
+```bash
+  JMX_PORT=8004 bin/kafka-server-start.sh config/server.properties
+```
+
+---
+
 ### Folder Structure
 
 - Producer.py
@@ -139,11 +143,18 @@ http://localhost:8080/
 - Data_Generator.py
 - Kafka_Power_BI.ipynb
 
+---
+
 ### Program Flow
 
+<p align="center">
+  <img src="Flow.jpg" width="850" >
+</p>
 
-
+---
 
 ### Documentation and Material
 
 - https://kafka.apache.org/documentation/
+- https://kafka-python.readthedocs.io/en/master/#:~:text=kafka%2Dpython%20is%20designed%20to,be%20enabled%20on%20newer%20brokers.
+
