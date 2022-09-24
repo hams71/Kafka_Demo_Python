@@ -4,10 +4,13 @@
 
 - [Overview](#overview)
 - [Kafka](#kafka)
-- [Kafka Installation](#kafka-installation)
+  - [Kafka Installation](#kafka-installation)
+  - [Java](#java)
+  - [Python](#python)
+  - [Kafka Manager](#kafka-manager)
+  - [Zookeeper and Kafka](#zookeeper-and-kafka)
 - [Folder Structure](#folder-structure)
 - [Program Flow](#program-flow)
-- [Level Up](#level-up)
 - [Documentation](#documentation)
 
 
@@ -153,8 +156,9 @@ http://localhost:8080/
 
 ---
 
-### Documentation and Material
+### Documentation
 
 - https://kafka.apache.org/documentation/
 - https://kafka-python.readthedocs.io/en/master/#:~:text=kafka%2Dpython%20is%20designed%20to,be%20enabled%20on%20newer%20brokers.
+- https://www.youtube.com/playlist?list=PLxoOrmZMsAWxXBF8h_TPqYJNsh3x4GyO4
 
