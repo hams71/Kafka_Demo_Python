@@ -53,7 +53,7 @@
 ```
 
 - Press **Esc** and enter **:x** to exit vim. 
-- Now to updathe bashrc file
+- Now to update the bashrc file
 ```bash
   source ~/.bashrc
 ```
